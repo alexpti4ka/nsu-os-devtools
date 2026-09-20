@@ -1,0 +1,3 @@
+Algorithms and data structures are easier to understand when tools stay out of the way.
+Compilation turns source code into executable programs through several distinct stages.
+Build systems help developers describe dependencies and avoid unnecessary work.
