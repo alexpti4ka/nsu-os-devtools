@@ -17,7 +17,7 @@
 Сначала склонируйте репозиторий на свой компьютер:
 
 ```bash
-git clone [https://github.com/alexpti4ka/nsu-os-devtools.git](https://github.com/alexpti4ka/nsu-os-devtools.git)
+git clone https://github.com/alexpti4ka/nsu-os-devtools.git
 ```
 
 Перейдите в созданную папку:
