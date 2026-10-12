@@ -17,6 +17,7 @@ known_hosts
 *етодическое*пособие*
 План лекции.md
 seminar_inst.txt
+quest-nuclear-key/
 
 # Артефакты сборки 
 *.o
@@ -26,4 +27,10 @@ seminar3-build-systems/build/
 seminar3-build-systems/lib/
 seminar3-build-systems/bin/
 seminar4-docker/hello/hello
+
+# Результаты домашних заданий (сдаются преподавателю одним архивом)
+**/home_tasks/*/results/
+**/home_tasks/*/gcc-results/
+**/home_tasks/*/make-results/
+**/home_tasks/*/*-results.tar.gz
 

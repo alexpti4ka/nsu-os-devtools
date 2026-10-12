@@ -1,0 +1,7 @@
+anya:barista:morning:+7-900-111-01-01
+kostya:barista:morning:+7-900-111-02-02
+lena:barista:evening:+7-900-111-03-03
+misha:barista:evening:+7-900-111-04-04
+marina:owner:flexible:+7-900-111-05-05
+oleg:cleaner:night:+7-900-111-06-06
+tanya:accountant:morning:+7-900-111-07-07
