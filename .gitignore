@@ -47,3 +47,6 @@ seminar6-filesystems/s6-results-*.tar.gz
 lab1-multiservice/c-lab-multiservice/lab1-results/
 lab1-multiservice/c-lab-multiservice/lab1-results-*.tar.gz
 
+# Архивы домашних заданий студентов 
+homeworks/
+
