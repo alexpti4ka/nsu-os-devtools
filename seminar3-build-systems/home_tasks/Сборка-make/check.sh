@@ -2,7 +2,7 @@
 # Проверка домашнего задания «Система сборки: Makefile для проекта calc».
 # Запускать из каталога задания:  ./check.sh
 # Скрипт проверяет результаты в make-results/ и, если всё в порядке,
-# собирает архив make-results.tar.gz для отправки преподавателю.
+# собирает архив s3-makefile.tar.gz для отправки преподавателю.
 
 set -u
 cd "$(dirname "$0")" || exit 1
@@ -122,12 +122,12 @@ fi
 
 echo
 if [ "$fail" -eq 0 ]; then
-    tar -czf make-results.tar.gz make-results/
+    tar -czf s3-makefile.tar.gz make-results/
     echo "Все проверки пройдены ($pass из $pass)."
     echo
-    echo "Архив готов: $(pwd)/make-results.tar.gz"
+    echo "Архив готов: $(pwd)/s3-makefile.tar.gz"
     echo "Отправьте этот файл своему семинаристу удобным способом (канал связи уточните на занятии)."
-    echo "В теме письма укажите: ДЗ Makefile — ФИО"
+    echo "В теме письма укажите: s3-makefile — ФИО"
     exit 0
 else
     echo "Проверок не пройдено: $fail. Исправьте замечания и запустите ./check.sh ещё раз."

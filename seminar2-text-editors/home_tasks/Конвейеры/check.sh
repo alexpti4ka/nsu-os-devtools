@@ -2,7 +2,7 @@
 # Проверка домашнего задания «Конвейеры: дело кофейни «Байт»».
 # Запускать из каталога задания:  ./check.sh
 # Скрипт проверяет результаты в results/ и, если всё в порядке,
-# собирает архив konvejery-results.tar.gz для отправки преподавателю.
+# собирает архив s2-coffee.tar.gz для отправки преподавателю.
 
 set -u
 cd "$(dirname "$0")" || exit 1
@@ -113,12 +113,12 @@ fi
 
 echo
 if [ "$fail" -eq 0 ]; then
-    tar -czf konvejery-results.tar.gz results/
+    tar -czf s2-coffee.tar.gz results/
     echo "Все проверки пройдены ($pass из $pass)."
     echo
-    echo "Архив готов: $(pwd)/konvejery-results.tar.gz"
+    echo "Архив готов: $(pwd)/s2-coffee.tar.gz"
     echo "Отправьте этот файл своему семинаристу удобным способом (канал связи уточните на занятии)."
-    echo "В теме письма укажите: ДЗ Конвейеры — ФИО"
+    echo "В теме письма укажите: s2-coffee — ФИО"
     exit 0
 else
     echo "Проверок не пройдено: $fail. Исправьте замечания и запустите ./check.sh ещё раз."

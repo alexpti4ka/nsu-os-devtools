@@ -2,7 +2,7 @@
 # Проверка лабораторной работы 1 «Сборка и запуск многоконтейнерного приложения на C».
 # Запускать из каталога c-lab-multiservice/:  ./check.sh
 # Скрипт проверяет неизменность исходников, сборку проекта и результаты,
-# а затем собирает именной архив lab1-results-<Фамилия>-<хеш>.tar.gz.
+# а затем собирает именной архив lab1-launcher-<Фамилия>-<хеш>.tar.gz.
 
 set -u
 cd "$(dirname \"$0\")" || exit 1
@@ -35,7 +35,7 @@ fi
 
 STUDENT_KEY="${STUDENT_SURNAME} ${STUDENT_NAME}"
 HASH=$(printf '%s' "$STUDENT_KEY" | sha256sum | cut -c1-8)
-ARCHIVE="lab1-results-${STUDENT_SURNAME}-${HASH}.tar.gz"
+ARCHIVE="lab1-launcher-${STUDENT_SURNAME}-${HASH}.tar.gz"
 
 echo "Студент: $STUDENT_SURNAME $STUDENT_NAME  (хеш $HASH)"
 echo
@@ -178,7 +178,7 @@ if [ "$fail" -eq 0 ]; then
     echo
     echo "Архив готов: $(pwd)/$ARCHIVE"
     echo "Отправьте этот файл своему семинаристу удобным способом (канал связи уточните на занятии)."
-    echo "В теме письма укажите: Лабораторная работа 1 — $STUDENT_SURNAME $STUDENT_NAME"
+    echo "В теме письма укажите: lab1-launcher — $STUDENT_SURNAME $STUDENT_NAME"
     exit 0
 else
     echo "Проверок не пройдено: $fail. Исправьте замечания и запустите ./check.sh ещё раз."

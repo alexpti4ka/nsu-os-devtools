@@ -2,13 +2,13 @@
 # Проверка семинара 6 «Файловые системы Linux».
 # Запускать из каталога семинара:  ./check.sh
 # Скрипт проверяет результаты в s6-results/ и, если всё в порядке,
-# собирает именной архив s6-results-<Фамилия>-<хеш>.tar.gz для отправки преподавателю.
+# собирает именной архив s6-filesys-<Фамилия>-<хеш>.tar.gz для отправки преподавателю.
 
 set -u
 cd "$(dirname \"$0\")" || exit 1
 
 RESULTS_DIR="s6-results"
-ARCHIVE_PREFIX="s6-results"
+ARCHIVE_PREFIX="s6-filesys"
 
 pass=0
 fail=0
@@ -123,7 +123,7 @@ if [ "$fail" -eq 0 ]; then
     echo
     echo "Архив готов: $(pwd)/$ARCHIVE"
     echo "Отправьте этот файл своему семинаристу удобным способом (канал связи уточните на занятии)."
-    echo "В теме письма укажите: Семинар 6 Файловые системы — $STUDENT_SURNAME $STUDENT_NAME"
+    echo "В теме письма укажите: s6-filesys — $STUDENT_SURNAME $STUDENT_NAME"
     exit 0
 else
     echo "Проверок не пройдено: $fail. Исправьте замечания и запустите ./check.sh ещё раз."
