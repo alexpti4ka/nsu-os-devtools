@@ -1,0 +1,58 @@
+name: Mission Control
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: "pages-${{ github.ref }}"
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+      # Задача семинара: добавьте два шага проверки перед сборкой страницы.
+      - name: Build Mission Control page
+        run: make site report
+      - name: Upload mission report
+        uses: actions/upload-artifact@v4
+        with:
+          name: mission-report
+          if-no-files-found: error
+          path: |
+            artifacts/
+            site/
+
+  deploy:
+    needs: verify
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-24.04
+    permissions:
+      pages: write
+      id-token: write
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Download verified site
+        uses: actions/download-artifact@v4
+        with:
+          name: mission-report
+          path: release
+      - name: Configure GitHub Pages
+        uses: actions/configure-pages@v5
+      - name: Upload page
+        uses: actions/upload-pages-artifact@v4
+        with:
+          path: release/site
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v4
